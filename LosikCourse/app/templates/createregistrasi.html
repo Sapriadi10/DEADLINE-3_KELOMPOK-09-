@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CREATE DATA REGISTRASI</h1>
+    <form action="" method ="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Id_Siswa</th>
+                <td>
+                    <select name="Id_Siswa" id="">
+                        {% for item in datasiswa %}
+                        <option value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>ID_CS</th>
+                <td>
+                    <select name="ID_CS" id="">
+                        {% for item in datacustomerservice %}
+                        <option value="{{item.ID_CS}}">{{item.ID_CS}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Tanggal_Registrasi</th>
+                <td>
+                    <input type="date" name="Tanggal_Registrasi">
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

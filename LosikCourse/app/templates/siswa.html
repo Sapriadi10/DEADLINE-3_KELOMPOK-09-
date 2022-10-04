@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siswa</title>
+</head>
+<body>
+    <h1>Siswa</h1>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Tanggal Lahir</th>
+            <th>Alamat</th>
+            <th>No Hp</th>
+            <th>Action</th>
+        </tr>
+        {% for item in allsiswaobj %}
+        <tr>
+            <td>{{ item.Nama_Siswa }}</td>
+            <td>{{ item.Tanggal_Lahir }}</td>
+            <td>{{ item.Alamat_Siswa }}</td>
+            <td>{{ item.Nomor_Telepon_Siswa }}</td>
+            <td>
+                <a href="{%url 'updatesiswa' item.Id_Siswa %}">
+                    <button>Update</button>
+                </a>
+                <a href="{%url 'deletesiswa' item.Id_Siswa %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </table>
+    <a href="{% url 'createsiswa' %}">
+        <button>
+            CREATE DATA
+        </button>
+    </a>
+</body>
+</html>

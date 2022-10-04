@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Update Data Kelas Mata Kursus</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Jenis Kursus</th>
+                <td>
+                    <select name="JenisKursus" id="">
+                        <option value="Full-stack Web Developer">Full-stack Web Developer</option> 
+                        <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
+                        <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
+                        <option value="Digital Marketing">Digital Marketing</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Jenis Kelas</th>
+                <td>
+                    <select name="JenisKelas" id="">
+                        {%if Kelas_Mata_Kursus.Jenis_Kelas == "PROCLASS" %}
+                        <option selected value="PROCLASS">PROCLASS</option>
+                        <option value="MINICLASS">MINICLASS</option>
+                        {% else %}
+                        <option value="PROCLASS">PROCLASS</option>
+                        <option selected value="MINICLASS">MINICLASS</option>
+                        {% endif %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Jumlah Pertemuan</th>
+                <td>
+                    <input type="number" name="JumlahPertemuan" value="{{Kelas_Mata_Kursus.Jumlah_Pertemuan}}">
+                </td>
+            </tr>
+            <tr>
+                <th>Jadwal</th>
+                <td>
+                    <input type="text" name="Jadwal" value="{{Kelas_Mata_Kursus.Jadwal}}">
+                </td>
+            </tr>
+            <tr>
+                <th>Harga</th>
+                <td>
+                    <input type="number" name="Harga" value="{{Kelas_Mata_Kursus.Harga}}">
+                </td>
+            </tr>
+            <tr>
+                <th>Status Kelas</th>
+                <td>
+                    <select name="StatusKelas" id="">
+                        {%if Kelas_Mata_Kursus.Status_Kelas == "Belum Dimulai"%}
+                        <option selected value="Belum Dimulai">Belum Dimulai</option>
+                        <option value="Dimulai">Dimulai</option>
+                        {% else %}
+                        <option value="Belum Dimulai">Belum Dimulai</option>
+                        <option selected value="Dimulai">Dimulai</option>
+                        {% endif %}
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

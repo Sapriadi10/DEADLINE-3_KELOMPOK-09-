@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Data Kelas Digital Marketing</h1>
+    <table>
+        <tr>
+            <th>ID Kelas Mata Kursus </th>
+            <th>Jenis Kursus</th>
+            <th>Jenis Kelas</th>
+            <th>Jumlah Pertemuan</th>
+            <th>Jadwal</th>
+            <th>Harga</th>
+            <th>Status Kelas</th>
+            <th>Action</th>
+        </tr>
+        {% for item in filterdm %}
+        <tr>
+            <td>{{ item.Id_Kelas_Mata_Kursus}}</td>
+            <td>{{ item.Jenis_Kursus}}</td>
+            <td>{{ item.Jenis_Kelas }}</td>
+            <td>{{ item.Jumlah_Pertemuan }}</td>
+            <td>{{ item.Jadwal }}</td> 
+            <td>{{ item.Harga }}</td>
+            <td>{{ item.Status_Kelas }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

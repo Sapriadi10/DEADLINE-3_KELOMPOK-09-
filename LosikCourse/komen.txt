@@ -1,0 +1,99 @@
+1. Entitas Kelas mata kursus
+#Create
+Udah oke
+
+#Read
+Berdasar crud kalian, yang perlu diread itu apa? apakah nantinya perlu get atau filter? DONE
+
+(04 okt)
+Bisa dibuat dropdown untuk filter berdasarkan jenis kursus apa
+Views dan html per viewsnya
+Kalau misal butuh tau informasi siswa yang mengambil kelas itu, bisa diarahkan ke laman yang udah difilter berdasarkan kelas
+
+#Update
+Kalau update berarti kan yang ditampilkan itu apa yang diget dari id, kalau punya kalian jatuhnya create ulang, jadi coba dicek lagi ya
+Sepertinya ada yang miss di variabel yang kalian panggil antara di views, html, dan models kalian
+Coba dicek :
+a. Apakah key yang dirender di views dengan key yang kalian panggil di html sudah sama?
+b. Apakah atribut2 yang kalian panggil di html ada di models?
+c. Untuk method post di views, apa yang kalian post sudah sesuai belum?
+d. Jangan lupa dicoba2 lagi, semangatt! DONE MBAK
+
+(04 okt)
+Jenis kelas mata kursus bisa di kondisikan agar yang tertampil pertama adalah opsi yang sudah dipilih sebelumnya
+Buat logicnya mirip dengan create registrasi yang ambil data pelanggan
+
+
+#Delete
+Udah oke
+
+
+
+
+2. Entitas CS
+#Create
+Udah oke
+
+#Read
+Berdasar crud kalian, yang perlu diread itu apa? apakah nantinya perlu get? DONEE
+
+#Update
+Sama seperti entitas sebelumnya, coba dicek lagi yaa DONE
+
+#Delete
+Udah oke
+
+
+
+3. Entitas siswa
+#Create
+Udah oke
+
+#Read
+Sama seperti sebelumnya, apakah butuh get? DONESS
+
+#Update
+Sama seperti entitas sebelumnya DONES
+
+#Delete
+Udah oke
+
+
+
+4. Entitas Registrasi
+#Create
+Belum ada button create ya?
+Masih bingung ga yang kemaren buat ambil id dari siswa? Ini di html nya yaa
+Logikanya kalian bikin select dengan option siswa yang udah ada DI HTML
+Cara ambil siswa yang udah ada gimana? misal ada 5 siswa, tapi besok 6 siswa, berarti bisa beda2 kan
+Kalau gitu bisa pakai looping for buat ngambil item dari database siswa biar nanti sesuai DIHTML
+Tapi sebelum itu jangan lupa di views passing value dulu, simpan ke dalam variabel yang nanti bisa dipanggil di loopingnya, semangattt DI VIEWS
+Notes lagii, if methodnya bener post kah?
+
+#Read
+Sama, apakah butuh get?
+
+#Update
+Sama dengan entitas lainnya
+
+#Delete
+Belum ada delete ya?
+
+
+
+5. Detail Registrasi
+#Create
+Coba bikin kayak registrasi yaa
+
+#Read
+
+#Update
+
+#Delete
+
+
+
+!!!!!!SEMANGATTTTT!!!!!!
+
+
+

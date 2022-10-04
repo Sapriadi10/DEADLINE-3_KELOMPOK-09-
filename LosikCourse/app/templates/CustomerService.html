@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Customer Service</h1>
+    <table>
+        <tr>
+            <th>ID Customer Service </th>
+            <th>Nama CS</th>
+            <th>Nomor Telepon CS</th>
+            <th>Alamat CS</th>
+            <th>Action</th>
+        </tr>
+        {% for item in allCustomerService %}
+        <tr>
+            <td>{{ item.ID_CS }}</td>
+            <td>{{ item.nama_cs}}</td>
+            <td>{{ item.nomer_telepon_cs }}</td>
+            <td>{{ item.Alamat_cs }}</td>
+            <td>
+                <a href="{%url 'updateCustomerService' item.ID_CS %}">
+                    <button>Update</button>
+                </a>
+                <a href="{%url 'deleteCustomerService' item.ID_CS %}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{% url 'createCustomerService' %}">
+        <button>
+            CREATE DATA
+        </button>
+    </a>
+</body>
+</html>
