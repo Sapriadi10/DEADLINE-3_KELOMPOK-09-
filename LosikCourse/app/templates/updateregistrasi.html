@@ -14,13 +14,21 @@
             <tr>
                 <th>ID Siswa</th>
                 <td>
-                    <input type="text" name="Id_Siswa" value="{{registrasi.Id_Siswa}}">
+                    <select name="Id_Siswa" id="">
+                        {% for item in allsiswaobj %}
+                        <option value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% endfor %}
+                    </select>
                 </td>
             </tr>
             <tr>
                 <th>ID CS</th>
                 <td>
-                    <input type="text" name="ID_CS" value="{{registrasi.ID_CS}}">
+                    <select name="ID_CS" id="">
+                        {% for item in allcustomerserviceobj %}
+                        <option value="{{item.ID_CS}}">{{item.ID_CS}}</option>
+                        {% endfor %}
+                    </select>
                 </td>
             </tr>
             <tr>

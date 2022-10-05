@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Detail Registrasi</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Id_Siswa</th>
+            <th>ID_CS</th>
+            <th>Tanggal_Registrasi</th>
+        </tr>
+        {% for item in filterdetail %}
+        <tr>
+            <td>{{ item.Id_Siswa }}</td>
+            <td>{{ item.ID_CS }}</td>
+            <td>{{ item.Tanggal_Registrasi}}</td>
+    </table>
+</body>
+</html>

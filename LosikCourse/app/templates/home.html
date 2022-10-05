@@ -9,21 +9,55 @@
 <body>
     <h1>Dashboard</h1>
     <table>
-        <a href="{% url 'createCustomerService' %}">
-            <button>
-                CREATE CUSTOMER SERVICE
-            </button>
-        </a>
-        <a href="{% url 'createsiswa' %}">
-            <button>
-                CREATE SISWA
-            </button>
-        </a>
-        <a href="{% url 'createregistrasi' %}">
-            <button>
-                CREATE REGISTRASI
-            </button>
-        </a>
+            <td>
+                Jumlah Siswa: {{jumlahsiswa}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'kelasmatakursus' %}">
+                    <button>
+                        KELAS MATA KURSUS
+                    </button>
+                </a> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'CustomerService' %}">
+                    <button>
+                        CUSTOMER SERVICE
+                    </button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'siswa' %}">
+                    <button>
+                        SISWA
+                    </button>
+                </a>  
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'registrasi' %}">
+                    <button>
+                        REGISTRASI
+                    </button>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'DetailRegistrasi' %}">
+                    <button>
+                        DETAIL REGISTRASI
+                    </button>
+                </a> 
+            </td>
+        </tr>
     </table>
 </body>
 </html>

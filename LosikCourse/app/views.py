@@ -1,3 +1,4 @@
+import re
 from socket import IP_DROP_MEMBERSHIP
 from django.shortcuts import render,redirect
 from django.shortcuts import render,redirect
@@ -7,15 +8,9 @@ from django.http import HttpResponse
 
 # # Create your views here.
 def dashboard(request):
-    jumlahkelasdimulai= models.Kelas_Mata_Kursus.objects.filter(Status_Kelas = "Dimulai")
-    jumlahkelasbelumdimulai = models.Kelas_Mata_Kursus.objects.filter(Status_Kelas = "Belum Dimulai")
     jumlahsiswa = models.Siswa.objects.all().count()
-    jumlahdetailregistrasi = models.DetailRegistrasi.objects.all().count()
     return render(request, 'home.html',{ 
-        "umlahkelasdimulai" : jumlahkelasdimulai,
-        "kelasbelumdimulai" : jumlahkelasbelumdimulai,
         "jumlahsiswa" : jumlahsiswa,
-        "jumlahdetailregistrasi" : jumlahdetailregistrasi,
     })
 
 def siswa(request):
@@ -141,11 +136,15 @@ def createregistrasi(request):
 
 def updateregistrasi(request,id):
     registrasiobj = models.Registrasi.objects.get(Id_Registrasi= id)
+    allsiswaobj = models.Registrasi.objects.all()
+    allcustomerserviceobj = models.Registrasi.objects.all()
     tanggal = datetime.strftime(registrasiobj.Tanggal_Registrasi, '%Y-%m-%d')
     if request.method == "GET":
         return render(request,'updateregistrasi.html',{
             'registrasi' : registrasiobj,
-            'tanggal':tanggal
+            'tanggal':tanggal,
+            'allsiswaobj' : allsiswaobj,
+            'allcustomerserviceobj' : allcustomerserviceobj,
         })
     else :
         registrasiobj.Id_Siswa = request.POST['Id_Siswa']
@@ -160,11 +159,24 @@ def deleteregistrasi(request,id):
     return redirect('registrasi')
 
 def kelasmatakursus(request):
-    allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
-
-    return render(request, 'kelasmatakursus.html', {
-        "allkelasmatakursus" : allkelasmatakursusobj,
-    })
+    if request.method == "GET":
+        allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
+        filterkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
+        return render(request, 'kelasmatakursus.html', {
+            "allkelasmatakursus" : allkelasmatakursusobj, "filterkelasmatakursusobj" : filterkelasmatakursusobj,
+        })
+    else:
+        kelasobj = request.POST["filterkelas"]
+        if kelasobj == "Full-stack Web Developer":
+            nilai = "Full-stack Web Developer"
+        elif kelasobj == "UI/UX Design and Produc Management":
+            nilai = "UI/UX Design and Produc Management"
+        elif kelasobj == 'Graphic and Motion Designer':
+            nilai = 'Graphic and Motion Designer'
+        else:
+            nilai = 'Digital Marketing'
+        filterkelasobj = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus = nilai )
+        return render(request, "filteringkelas.html", {'filterkelasobj' : filterkelasobj})
 
 def createkelasmatakursus(request):
     if request.method == "GET":
@@ -213,10 +225,11 @@ def deletekelasmatakursus(request,id):
 def DetailRegistrasi(request):
     alldetailregistrasiobj = models.DetailRegistrasi.objects.all()
     getdetailregistrasiobj = models.DetailRegistrasi.objects.get(Id_DetailRegistrasi=5)
-
+    filterdetailregistrasi = models.DetailRegistrasi.objects.all()
     return render(request, 'detailregistrasi.html', {
         "alldetailregistrasiobj" : alldetailregistrasiobj,
         "getdetailregistrasiobj" : getdetailregistrasiobj,
+        'filterdetailregistrasi' : filterdetailregistrasi,
     })
 
 def createdetailregistrasi(request):
@@ -242,9 +255,11 @@ def createdetailregistrasi(request):
 
 def updatedetailregistrasi(request,id):
     detailregistrasiobj = models.DetailRegistrasi.objects.get(Id_DetailRegistrasi=id)
+    allregistrasiobj = models.Registrasi.objects.all()
+    allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
     if request.method == "GET" :
         return render(request, 'updatedetailregistrasi.html', {
-            'alldetailregistrasi' : detailregistrasiobj,
+            'alldetailregistrasi' : detailregistrasiobj, 'allregistrasiobj' : allregistrasiobj, 'allkelasmatakursusobj' : allkelasmatakursusobj,
         })
     else :
         detailregistrasiobj.Id_Registrasi = request.POST['Id_Registrasi']
@@ -257,42 +272,3 @@ def deletedetailregistrasi(request,id):
     detailregistrasiobj.delete()
     return redirect('DetailRegistrasi') 
 
-def dashboard(request):
-    kelasdimulai= models.Kelas_Mata_Kursus.objects.filter(Status_Kelas = "Dimulai")
-    return render(request, 'home.html',{
-
-    })
-def FullstackWebDeveloper(request):
-    allFullstackWebDeveloperobj = models.Kelas_Mata_Kursus.objects.all()
-    filterfs = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus="Full-stack Web Developer")
-    return render(request, 'FullstackWebDeveloper.html', {
-        "allFullstackWebDeveloperobj" : allFullstackWebDeveloperobj, 'filterfs': filterfs,
-    }) 
-
-def UIUXDesignandProducManagement(request):
-    allUIUXDesignandProducManagement=models.Kelas_Mata_Kursus.objects.all()
-    filterui = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus="UI/UX Design and Produc Management")
-
-    return render(request, 'UIUXDesignandProducManagement.html', {
-        "allUIUXDesignandProducManagementobj" : allUIUXDesignandProducManagement, 'filterui' : filterui,
-    })
-
-def GraphicandMotionDesign(request):
-    allGraphicandMotionDesign=models.Kelas_Mata_Kursus.objects.all()
-    filtergm = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus="Graphic and Motion Designer")
-
-    return render(request, 'GraphicandMotionDesign.html', {
-        "allGraphicandMotionDesignobj" : allGraphicandMotionDesign, 'filtergm': filtergm, 
-    })
-
-def DigitalMarketing(request):
-    allDigitalMarketing=models.Kelas_Mata_Kursus.objects.all()
-    filterdm = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus="Digital Marketing")
-    return render(request, 'DigitalMarketing.html', {
-        "allDigitalMarketingobj" : allDigitalMarketing, 'filterdm': filterdm,
-    }) 
-
-def filterdetailregistrasi(request):
-    alldetail = models.DetailRegistrasi.objects.all()
-    filter = models.DetailRegistrasi.objects.filter()
-    return render(request, )
