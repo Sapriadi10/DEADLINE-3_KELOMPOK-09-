@@ -15,8 +15,11 @@
                 <th>ID Siswa</th>
                 <td>
                     <select name="Id_Siswa" id="">
-                        {% for item in allsiswaobj %}
-                        <option value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% for item in allsiswaobj %} {% if item.Id_Siswa == registrasi.Id_Siswa %}
+                        <option selected value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% else %}
+                        <option selected value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </td>

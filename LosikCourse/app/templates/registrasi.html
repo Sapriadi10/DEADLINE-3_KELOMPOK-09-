@@ -23,7 +23,7 @@
             <td>
                 <a href="{%url 'filterdetailregis' item.Id_Registrasi %}">
                     <button>
-                        FILTER DETAIL REGISTRASI
+                        DETAIL REGISTRASI
                     </button>
                 </a>
                 <a href="{%url 'updateregistrasi' item.Id_Registrasi %}">
@@ -42,5 +42,12 @@
             CREATE DATA
         </button>
     </a>
+    <tr>
+        <td>
+            <a href="{% url 'createdetailregistrasi' %}">
+                <button type="submit">NEXT</button>
+            </a> 
+        </td>
+    </tr>
 </body>
 </html>

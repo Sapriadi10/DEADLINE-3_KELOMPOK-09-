@@ -15,8 +15,11 @@
                 <th>Id Registrasi</th>
                 <td> 
                     <select name="Id_Registrasi" id="">
-                        {% for item in allregistrasiobj %}
-                        <option value="{{item.Id_Registrasi}}">{{item.Id_Registrasi}}</option>
+                        {% for item in allregistrasiobj %} {% if  %}
+                        <tr>
+                            <option value="{{item.Id_Registrasi}}">{{item.Id_Registrasi}}</option> 
+                        </tr>
+                        
                         {% endfor %}
                     </select>
                 </td>
