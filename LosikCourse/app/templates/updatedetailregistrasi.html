@@ -15,11 +15,12 @@
                 <th>Id Registrasi</th>
                 <td> 
                     <select name="Id_Registrasi" id="">
-                        {% for item in allregistrasiobj %} {% if  %}
-                        <tr>
-                            <option value="{{item.Id_Registrasi}}">{{item.Id_Registrasi}}</option> 
-                        </tr>
-                        
+                        {% for item in allregistrasiobj %} 
+                        {% if item.Id_Registrasi == alldetailregistrasi.Id_Registrasi.Id_Registrasi %}
+                        <option selected value="{{item.Id_Registrasi}}">{{item.Id_Registrasi}}</option>
+                        {% else %}
+                        <option value="{{item.Id_Registrasi}}">{{item.Id_Registrasi}}</option>
+                        {% endif %} 
                         {% endfor %}
                     </select>
                 </td>
@@ -28,8 +29,12 @@
                 <th>Id Kelas Mata Kursus</th>
                 <td>
                     <select name="Id_Kelas_Mata_Kursus" id="">
-                        {% for item in allkelasmatakursusobj %}
+                        {% for item in allkelasmatakursusobj %} 
+                        {% if item.Id_Id_Kelas_Mata_Kursus == alldetailregistrasi.Id_Kelas_Mata_Kursus.Id_Kelas_Mata_Kursus %}
+                        <option selected value="{{item.Id_Kelas_Mata_Kursus}}">{{item.Id_Kelas_Mata_Kursus}}</option>
+                        {% else %}
                         <option value="{{item.Id_Kelas_Mata_Kursus}}">{{item.Id_Kelas_Mata_Kursus}}</option>
+                        {% endif %} 
                         {% endfor %}
                     </select>
                 </td>

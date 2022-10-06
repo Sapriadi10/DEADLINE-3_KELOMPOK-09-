@@ -15,11 +15,12 @@
                 <th>ID Siswa</th>
                 <td>
                     <select name="Id_Siswa" id="">
-                        {% for item in allsiswaobj %} {% if item.Id_Siswa == registrasi.Id_Siswa %}
-                        <option selected value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                        {% for item in allsiswaobj %} 
+                        {% if item.Nama_Siswa == registrasi.Id_Siswa.Nama_Siswa %}
+                        <option selected value="{{item.Id_Siswa}}">{{item.Nama_Siswa}}</option>
                         {% else %}
-                        <option selected value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
-                        {% endif %}
+                        <option value="{{item.Id_Siswa}}">{{item.Nama_Siswa}}</option>
+                        {% endif %} 
                         {% endfor %}
                     </select>
                 </td>
@@ -28,8 +29,11 @@
                 <th>ID CS</th>
                 <td>
                     <select name="ID_CS" id="">
-                        {% for item in allcustomerserviceobj %}
-                        <option value="{{item.ID_CS}}">{{item.ID_CS}}</option>
+                        {% for item in allcustomerserviceobj %} {% if item.ID_CS.nama_cs == registrasi.ID_CS.nama_cs %}
+                        <option selected value="{{item.ID_CS}}">{{item.nama_cs}}</option>
+                        {% else %}
+                        <option value="{{item.ID_CS}}">{{item.nama_cs}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </td>

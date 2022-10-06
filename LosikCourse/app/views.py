@@ -1,3 +1,4 @@
+from atexit import register
 import re
 from socket import IP_DROP_MEMBERSHIP
 from django.shortcuts import render,redirect
@@ -136,8 +137,8 @@ def createregistrasi(request):
 
 def updateregistrasi(request,id):
     registrasiobj = models.Registrasi.objects.get(Id_Registrasi= id)
-    allsiswaobj = models.Registrasi.objects.all()
-    allcustomerserviceobj = models.Registrasi.objects.all()
+    allsiswaobj = models.Siswa.objects.all()
+    allcustomerserviceobj = models.CustomerService.objects.all()
     tanggal = datetime.strftime(registrasiobj.Tanggal_Registrasi, '%Y-%m-%d')
     if request.method == "GET":
         return render(request,'updateregistrasi.html',{
@@ -147,8 +148,10 @@ def updateregistrasi(request,id):
             'allcustomerserviceobj' : allcustomerserviceobj,
         })
     else :
-        registrasiobj.Id_Siswa = request.POST['Id_Siswa']
-        registrasiobj.ID_CS = request.POST['ID_CS']
+        getidsiswa = models.Siswa.objects.get(Id_Siswa = request.POST['Id_Siswa'])
+        getidcs = models.CustomerService.objects.get(ID_CS = request.POST['ID_CS'])
+        registrasiobj.ID_CS = getidcs
+        registrasiobj.Id_Siswa = getidsiswa
         registrasiobj.Tanggal_Registrasi = request.POST['Tanggal_Registrasi']
         registrasiobj.save()
         return redirect('registrasi')
@@ -264,8 +267,10 @@ def updatedetailregistrasi(request,id):
             'alldetailregistrasi' : detailregistrasiobj, 'allregistrasiobj' : allregistrasiobj, 'allkelasmatakursusobj' : allkelasmatakursusobj,
         })
     else :
-        detailregistrasiobj.Id_Registrasi = request.POST['Id_Registrasi']
-        detailregistrasiobj.Id_Kelas_Mata_Kursus = request.POST['Id_Kelas_Mata_Kursus']
+        getidregistrasi = models.Registrasi.objects.get(Id_Registrasi = request.POST['Id_Registrasi']) 
+        getidkelas = models.Kelas_Mata_Kursus.objects.get(Id_Kelas_Mata_Kursus = request.POST['Id_Kelas_Mata_Kursus'])
+        detailregistrasiobj.Id_Registrasi = getidregistrasi
+        detailregistrasiobj.Id_Kelas_Mata_Kursus = getidkelas
         detailregistrasiobj.save()
         return redirect('DetailRegistrasi')
 
