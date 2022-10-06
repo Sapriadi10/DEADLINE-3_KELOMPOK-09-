@@ -225,12 +225,14 @@ def deletekelasmatakursus(request,id):
 def DetailRegistrasi(request):
     alldetailregistrasiobj = models.DetailRegistrasi.objects.all()
     getdetailregistrasiobj = models.DetailRegistrasi.objects.get(Id_DetailRegistrasi=5)
-    filterdetailregistrasi = models.DetailRegistrasi.objects.all()
     return render(request, 'detailregistrasi.html', {
         "alldetailregistrasiobj" : alldetailregistrasiobj,
         "getdetailregistrasiobj" : getdetailregistrasiobj,
-        'filterdetailregistrasi' : filterdetailregistrasi,
     })
+
+def filterdetailregistrasi (request, id) :
+    filterdetailregis = models.DetailRegistrasi.objects.filter(Id_Registrasi=id)
+    return render (request, 'filterdetailregistrasi.html', {'filterdetailregis' : filterdetailregis})
 
 def createdetailregistrasi(request):
     if request.method == "GET":

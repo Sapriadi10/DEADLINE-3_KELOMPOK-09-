@@ -24,29 +24,9 @@
             <tr>
                 <th>Id Kelas Mata Kursus</th>
                 <td>
-                    <select name="JenisKursus" id="">
-                        {% for item in datakelasmata %}
-                            {%if Kelas_Mata_Kursus.Id_Kelas_Mata_Kursus == "Full-stack Web Developer"%}
-                            <option selected value="Full-stack Web Developer">Full-stack Web Developer</option> 
-                            <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
-                            <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
-                            <option value="Digital Marketing">Digital Marketing</option>
-                            {% elif  Kelas_Mata_Kursus.Id_Kelas_Mata_Kursus == "UI/UX Design and Produc Management"% %}
-                            <option value="Full-stack Web Developer">Full-stack Web Developer</option> 
-                            <option selected value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
-                            <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
-                            <option value="Digital Marketing">Digital Marketing</option>
-                            {% elif Kelas_Mata_Kursus.Id_Kelas_Mata_Kursus == "Graphic and Motion Designer"%}
-                            <option value="Full-stack Web Developer">Full-stack Web Developer</option> 
-                            <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
-                            <option selected value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
-                            <option value="Digital Marketing">Digital Marketing</option>
-                            {% else %}
-                            <option value="Full-stack Web Developer">Full-stack Web Developer</option> 
-                            <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
-                            <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
-                            <option selected value="Digital Marketing">Digital Marketing</option>
-                            {% endif %}
+                    <select name="Id_Kelas_Mata_Kursus" id="">
+                        {% for item in allkelasmatakursusobj %}
+                        <option value="{{item.Id_Kelas_Mata_Kursus}}">{{item.Id_Kelas_Mata_Kursus}}</option>
                         {% endfor %}
                     </select>
                 </td>

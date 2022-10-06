@@ -15,10 +15,27 @@
                 <th>Jenis Kursus</th>
                 <td>
                     <select name="JenisKursus" id="">
-                        <option value="Full-stack Web Developer">Full-stack Web Developer</option> 
+                        {% if Kelas_Mata_Kursus.Jenis_Kursus == 'Full-stack Web Developer' %}
+                        <option selected value="Full-stack Web Developer">Full-stack Web Developer</option>
                         <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
                         <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
-                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Digital Marketing">Digital Marketing</option> 
+                        {% elif Kelas_Mata_Kursus.Jenis_Kursus == 'UI/UX Design and Produc Managementr' %}
+                        <option value="Full-stack Web Developer">Full-stack Web Developer</option>
+                        <option selected value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
+                        <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
+                        <option value="Digital Marketing">Digital Marketing</option> 
+                        {% elif Kelas_Mata_Kursus.Jenis_Kursus == 'Graphic and Motion Designer' %}
+                        <option value="Full-stack Web Developer">Full-stack Web Developer</option>
+                        <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
+                        <option selected value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
+                        <option value="Digital Marketing">Digital Marketing</option> 
+                        {% elif Kelas_Mata_Kursus.Jenis_Kursus == 'Digital Marketing' %}
+                        <option value="Full-stack Web Developer">Full-stack Web Developer</option>
+                        <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option> 
+                        <option value="Graphic and Motion Designer">Graphic and Motion Designer</option> 
+                        <option selected value="Digital Marketing">Digital Marketing</option> 
+                        {% endif %}
                     </select>
                 </td>
             </tr>
@@ -39,19 +56,19 @@
             <tr>
                 <th>Jumlah Pertemuan</th>
                 <td>
-                    <input type="number" name="JumlahPertemuan" value="{{Kelas_Mata_Kursus.Jumlah_Pertemuan}}">
+                    <input required  type="number" name="JumlahPertemuan" value="{{Kelas_Mata_Kursus.Jumlah_Pertemuan}}">
                 </td>
             </tr>
             <tr>
                 <th>Jadwal</th>
                 <td>
-                    <input type="text" name="Jadwal" value="{{Kelas_Mata_Kursus.Jadwal}}">
+                    <input required type="text" name="Jadwal" value="{{Kelas_Mata_Kursus.Jadwal}}">
                 </td>
             </tr>
             <tr>
                 <th>Harga</th>
                 <td>
-                    <input type="number" name="Harga" value="{{Kelas_Mata_Kursus.Harga}}">
+                    <input required type="number" name="Harga" value="{{Kelas_Mata_Kursus.Harga}}">
                 </td>
             </tr>
             <tr>

@@ -21,6 +21,11 @@
             <td>{{ item.ID_CS }}</td>
             <td>{{ item.Tanggal_Registrasi}}</td>
             <td>
+                <a href="{%url 'filterdetailregis' item.Id_Registrasi %}">
+                    <button>
+                        FILTER DETAIL REGISTRASI
+                    </button>
+                </a>
                 <a href="{%url 'updateregistrasi' item.Id_Registrasi %}">
                     <button>Update</button>
                 </a>
