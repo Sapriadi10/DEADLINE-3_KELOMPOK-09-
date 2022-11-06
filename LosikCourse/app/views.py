@@ -10,19 +10,49 @@ from django.http import HttpResponse
 # # Create your views here.
 def dashboard(request):
     jumlahsiswa = models.Siswa.objects.all().count()
-    return render(request, 'home.html',{ 
+    jumlahkelas = models.Kelas_Mata_Kursus.objects.all().count()
+    jumlahregistrasi = models.Registrasi.objects.all().count()
+    jumlahdetailregistrasi = models.DetailRegistrasi.objects.all().count()
+    return render(request, 'homey.html',{ 
         "jumlahsiswa" : jumlahsiswa,
+        "jumlahkelas" : jumlahkelas,
+        "jumlahregistrasi" : jumlahregistrasi,
+        "jumlahdetailregistrasi" : jumlahdetailregistrasi
     })
+
+def profile(request):
+    return render(request, "profile.html")
+
+def formsiswa(request):
+    return render(request, "formregistrasi.html")
 
 def siswa(request):
     allsiswaobj = models.Siswa.objects.all()
-    return render(request, 'siswa.html', {
+    return render(request, 'sisway.html', {
         'allsiswaobj' : allsiswaobj,
     })
 
 def createsiswa(request):
     if request.method == "GET":
-        return render(request, 'createsiswa.html')
+        return render(request, 'formsiswa.html')
+    else:
+        Nama_Siswa = request.POST["Nama_Siswa"]
+        Tanggal_Lahir = request.POST["Tanggal_Lahir"]
+        Alamat_Siswa = request.POST["Alamat_Siswa"]
+        Nomor_Telepon_Siswa = request.POST["Nomor_Telepon_Siswa"]
+
+        newsiswa = models.Siswa(
+            Nama_Siswa = Nama_Siswa,
+            Tanggal_Lahir = Tanggal_Lahir,
+            Alamat_Siswa = Alamat_Siswa,
+            Nomor_Telepon_Siswa = Nomor_Telepon_Siswa,   
+        )
+        newsiswa.save()
+        return redirect('siswa')
+
+def formsiswa(request):
+    if request.method == "GET":
+        return render(request, 'formsiswa.html')
     else:
         Nama_Siswa = request.POST["Nama_Siswa"]
         Tanggal_Lahir = request.POST["Tanggal_Lahir"]
@@ -42,7 +72,7 @@ def updatesiswa(request,id):
     siswaobj = models.Siswa.objects.get(Id_Siswa=id)
     tanggal = datetime.strftime(siswaobj.Tanggal_Lahir, '%Y-%m-%d')
     if request.method == "GET" :
-        return render(request, 'updatesiswa.html', {
+        return render(request, 'updatesisway.html', {
             'allsiswa' : siswaobj,
             'tanggal':tanggal
         })
@@ -62,13 +92,13 @@ def deletesiswa(request,id):
 def CustomerService(request):
     allCustomerServiceobj = models.CustomerService.objects.all()
 
-    return render(request, 'CustomerService.html', {
+    return render(request, 'CustomerServicey.html', {
         "allCustomerService" : allCustomerServiceobj,
     })
 
 def createCustomerService(request):
     if request.method == "GET":
-        return render(request, 'createCustomerService.html')
+        return render(request, 'createCustomerServicey.html')
     else:
         nama_cs = request.POST['nama_cs']
         nomer_telepon_cs = request.POST['nomer_telepon_cs']
@@ -86,7 +116,7 @@ def createCustomerService(request):
 def updateCustomerService(request,id):
     CustomerServiceobj = models.CustomerService.objects.get(ID_CS=id)
     if request.method == "GET" :
-        return render(request, 'updateCustomerService.html', {
+        return render(request, 'updateCustomerServicey.html', {
             'allCustomerService' : CustomerServiceobj,
         })
     else :
@@ -105,7 +135,7 @@ def registrasi(request):
     allregistrasiobj = models.Registrasi.objects.all()
     getregistrasiobj = models.Registrasi.objects.get(Id_Registrasi=2)
 
-    return render(request, 'registrasi.html',{
+    return render(request, 'registrasiy.html',{
         'allregistrasiobj' : allregistrasiobj,
         'getregistrasiobj' : getregistrasiobj,
     })
@@ -114,7 +144,32 @@ def createregistrasi(request):
     if request.method == "GET":
         allsiswaobj = models.Siswa.objects.all()
         allCustomerServiceobj = models.CustomerService.objects.all()
-        return render(request, 'createregistrasi.html',{
+        return render(request, 'createregistrasiy.html',{
+            'datasiswa' : allsiswaobj, 'datacustomerservice': allCustomerServiceobj
+        })
+
+    if request.method == "POST":
+        Id_Siswa = request.POST['Id_Siswa']
+        allsiswaobj = models.Siswa.objects.get(Id_Siswa = Id_Siswa)
+
+        ID_CS = request.POST['ID_CS']
+        allCustomerServiceobj = models.CustomerService.objects.get(ID_CS = ID_CS)
+        Tanggal_Registrasi = request.POST['Tanggal_Registrasi']
+
+        newregistrasi = models.Registrasi(
+            Id_Siswa = allsiswaobj,
+            ID_CS = allCustomerServiceobj,
+            Tanggal_Registrasi = Tanggal_Registrasi
+        )
+        newregistrasi.save()
+
+        return redirect('registrasi')
+
+def formregistrasi(request):
+    if request.method == "GET":
+        allsiswaobj = models.Siswa.objects.all()
+        allCustomerServiceobj = models.CustomerService.objects.all()
+        return render(request, 'formregistrasi.html',{
             'datasiswa' : allsiswaobj, 'datacustomerservice': allCustomerServiceobj
         })
 
@@ -141,7 +196,7 @@ def updateregistrasi(request,id):
     allcustomerserviceobj = models.CustomerService.objects.all()
     tanggal = datetime.strftime(registrasiobj.Tanggal_Registrasi, '%Y-%m-%d')
     if request.method == "GET":
-        return render(request,'updateregistrasi.html',{
+        return render(request,'updateregistrasiy.html',{
             'registrasi' : registrasiobj,
             'tanggal':tanggal,
             'allsiswaobj' : allsiswaobj,
@@ -165,7 +220,7 @@ def kelasmatakursus(request):
     if request.method == "GET":
         allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
         filterkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
-        return render(request, 'kelasmatakursus.html', {
+        return render(request, 'kelasmatakursusy.html', {
             "allkelasmatakursus" : allkelasmatakursusobj, "filterkelasmatakursusobj" : filterkelasmatakursusobj,
         })
     else:
@@ -179,11 +234,11 @@ def kelasmatakursus(request):
         else:
             nilai = 'Digital Marketing'
         filterkelasobj = models.Kelas_Mata_Kursus.objects.filter(Jenis_Kursus = nilai )
-        return render(request, "filteringkelas.html", {'filterkelasobj' : filterkelasobj})
+        return render(request, "filteringkelasy.html", {'filterkelasobj' : filterkelasobj})
 
 def createkelasmatakursus(request):
     if request.method == "GET":
-        return render(request, 'createkelasmatakursus.html')
+        return render(request, 'createkelasmatakursusy.html')
     else:
         JenisKursus = request.POST['JenisKursus']
         JenisKelas = request.POST['JenisKelas']
@@ -207,7 +262,7 @@ def createkelasmatakursus(request):
 def updatekelasmatakursus(request,id):
     kelasmatakursusobj = models.Kelas_Mata_Kursus.objects.get(Id_Kelas_Mata_Kursus=id)
     if request.method == "GET" :
-        return render(request, 'updatekelasmatakursus.html', {
+        return render(request, 'updatekelasmatakursusy.html', {
             'Kelas_Mata_Kursus' : kelasmatakursusobj,
         })
     else :
@@ -228,20 +283,41 @@ def deletekelasmatakursus(request,id):
 def DetailRegistrasi(request):
     alldetailregistrasiobj = models.DetailRegistrasi.objects.all()
     getdetailregistrasiobj = models.DetailRegistrasi.objects.get(Id_DetailRegistrasi=5)
-    return render(request, 'detailregistrasi.html', {
+    return render(request, 'detailregistrasiy.html', {
         "alldetailregistrasiobj" : alldetailregistrasiobj,
         "getdetailregistrasiobj" : getdetailregistrasiobj,
     })
 
 def filterdetailregistrasi (request, id) :
     filterdetailregis = models.DetailRegistrasi.objects.filter(Id_Registrasi=id)
-    return render (request, 'filterdetailregistrasi.html', {'filterdetailregis' : filterdetailregis})
+    return render (request, 'filteringdetailregistrasiy.html', {'filterdetailregis' : filterdetailregis})
 
 def createdetailregistrasi(request):
     if request.method == "GET":
         allregistrasiobj = models.Registrasi.objects.all()
         allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
-        return render(request, 'createdetailregistrasi.html',{
+        return render(request, 'createdetailregistrasiy.html',{
+            'dataregistrasi' : allregistrasiobj, 'datakelasmata' : allkelasmatakursusobj
+        })
+    if request.method == "POST":
+        Id_Registrasi = request.POST['Id_Registrasi']
+        allregistrasiobj = models.Registrasi.objects.get(Id_Registrasi=Id_Registrasi)
+        Id_Kelas_Mata_Kursus = request.POST['Id_Kelas_Mata_Kursus']
+        allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.get(Id_Kelas_Mata_Kursus=Id_Kelas_Mata_Kursus)
+
+        newdetailregistrasi = models.DetailRegistrasi(
+            Id_Registrasi = allregistrasiobj,
+            Id_Kelas_Mata_Kursus = allkelasmatakursusobj
+        )
+        newdetailregistrasi.save()
+
+        return redirect('DetailRegistrasi')
+
+def formdetailregistrasi(request):
+    if request.method == "GET":
+        allregistrasiobj = models.Registrasi.objects.all()
+        allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
+        return render(request, 'formdetailregistrasi.html',{
             'dataregistrasi' : allregistrasiobj, 'datakelasmata' : allkelasmatakursusobj
         })
     if request.method == "POST":
@@ -263,7 +339,7 @@ def updatedetailregistrasi(request,id):
     allregistrasiobj = models.Registrasi.objects.all()
     allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
     if request.method == "GET" :
-        return render(request, 'updatedetailregistrasi.html', {
+        return render(request, 'updatedetailregistrasiy.html', {
             'alldetailregistrasi' : detailregistrasiobj, 'allregistrasiobj' : allregistrasiobj, 'allkelasmatakursusobj' : allkelasmatakursusobj,
         })
     else :

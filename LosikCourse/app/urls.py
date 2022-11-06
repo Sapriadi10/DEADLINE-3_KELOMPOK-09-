@@ -24,6 +24,10 @@ urlpatterns = [
     path('updatedetailregistrasi/<str:id>', views.updatedetailregistrasi, name='updatedetailregistrasi'),
     path('deleteregistrasi/<str:id>', views.deleteregistrasi, name='deleteregistrasi'),
     path('',views.dashboard,name='dashboard'),
+    path('profile', views.profile, name='profile'),
     path('filteringkelas', views.kelasmatakursus, name = "filterkelas"),
-    path('filterdetailregis/<str:id>', views.filterdetailregistrasi, name = "filterdetailregis")
+    path('filterdetailregis/<str:id>', views.filterdetailregistrasi, name = "filterdetailregis"),
+    path('formsiswa', views.formsiswa, name="formsiswa"),
+    path('formregistrasi', views.formregistrasi, name="formregistrasi"),
+    path('formdetailregistrasi', views.formdetailregistrasi, name="formdetailregistrasi"),
     ]
