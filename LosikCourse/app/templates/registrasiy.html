@@ -145,7 +145,7 @@
         <h1>Registrasi</h1>
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}"">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
             <li class="breadcrumb-item">Data Registrasi</li>
           </ol>
         </nav>
@@ -180,7 +180,7 @@
                                 </button>
                             </a>
                             <a href="{%url 'updateregistrasi' item.Id_Registrasi %}">
-                                <button class="btn btn-warning">Update</button>
+                                <button class="btn btn-warning" style="background-color: #e8dfca">Update</button>
                             </a>
                             <a href="{%url 'deleteregistrasi' item.Id_Registrasi %}">
                                 <button class="btn btn-danger">Delete</button>
@@ -191,17 +191,10 @@
                 </table>
                 </table>
                 <a href="{% url 'createregistrasi' %}">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success" style="background-color:#7895b2;">
                         CREATE DATA
                     </button>
                 </a>
-                <tr>
-                    <td>
-                        <a href="{% url 'createdetailregistrasi' %}">
-                            <button type="submit" class="btn btn-secondary">NEXT</button>
-                        </a> 
-                    </td>
-                </tr>
                 <!-- End Tables without borders -->
   
               </div>

@@ -175,7 +175,7 @@
                         <td>{{ item.Id_Kelas_Mata_Kursus }}</td>
                         <td>
                             <a href="{%url 'updatedetailregistrasi' item.Id_DetailRegistrasi %}">
-                                <button class="btn btn-warning">Update</button>
+                              <button class="btn btn-warning" style="background-color: #e8dfca">Update</button>
                             </a>
                             <a href="{%url 'deletedetailregistrasi' item.Id_DetailRegistrasi %}">
                                 <button class="btn btn-danger">Delete</button>
@@ -185,17 +185,10 @@
                     {% endfor %}
                 </table>
                 <a href="{% url 'createdetailregistrasi' %}">
-                    <button class="btn btn-success">
+                    <button class="btn btn-success" style="background-color:#7895b2 ;">
                         CREATE DATA
                     </button>
                 </a>
-                <tr>
-                    <td>
-                        <a href="{% url 'dashboard' %}">
-                            <button type="submit" class="btn btn-secondary">NEXT</button>
-                        </a> 
-                    </td>
-                </tr>
                 <!-- End Tables without borders -->
   
               </div>

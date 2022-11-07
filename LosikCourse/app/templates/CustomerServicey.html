@@ -179,7 +179,7 @@
                                 <td>{{ item.Alamat_cs }}</td>
                                 <td>
                                     <a href="{%url 'updateCustomerService' item.ID_CS %}">
-                                        <button class="btn btn-warning">Update</button>
+                                        <button class="btn btn-warning" style="background-color: #e8dfca">Update</button>
                                     </a>
                                     <a href="{%url 'deleteCustomerService' item.ID_CS %}">
                                         <button class="btn btn-danger">Delete</button>
@@ -190,7 +190,7 @@
                         </tbody>
                     </table>
                     <a href="{% url 'createCustomerService' %}">
-                        <button class="btn btn-success">
+                        <button class="btn btn-success" style="background-color:#7895b2 ;">
                             CREATE DATA
                         </button>
                     </a>

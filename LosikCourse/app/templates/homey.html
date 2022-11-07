@@ -46,13 +46,12 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="{% url 'dashboard' %}" class="logo d-flex align-items-center">
         <img src="{% static 'assets/img/logo.png'%}" alt="">
-        <span class="d-none d-lg-block" >LOSIK COURSE</span>
+        <span class="d-none d-lg-block"  >LOSIK COURSE</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-
-    <nav class="header-nav ms-auto">
+    <nav class="header-nav ms-auto" >
       <ul class="d-flex align-items-center">
 
         <li class="nav-item dropdown pe-3">
@@ -109,21 +108,21 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'CustomerService'%}"">
+        <a class="nav-link collapsed" href="{%url 'CustomerService'%}">
           <i class="bi bi-journal-text"></i>
           <span>Customer Service</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'siswa'%}"">
+        <a class="nav-link collapsed" href="{%url 'siswa'%}">
           <i class="bi bi-person"></i>
           <span>Siswa</span>
         </a>
       </li>
     
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'registrasi'%}"">
+        <a class="nav-link collapsed" href="{%url 'registrasi'%}">
           <i class="bi bi-menu-button-wide"></i>
           <span>Registrasi</span>
         </a>
@@ -131,7 +130,7 @@
       </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}"">
+        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}">
           <i class="bi bi-bar-chart"></i>
           <span>Detail Registrasi</span>
         </a>
@@ -146,7 +145,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active" >Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -185,7 +184,7 @@
                   <div class="card info-card revenue-card">
     
                     <div class="card-body">
-                      <h5 class="card-title">Jumlah Kelas Mata Kursus</h5>
+                      <h5 class="card-title" >Jumlah Kelas Mata Kursus</h5>
     
                       <div class="d-flex align-items-center">
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -199,10 +198,10 @@
     
                   </div>
                 </div><!-- End Revenue Card -->
-                <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card revenue-card">
+                <div class="col-xxl-4 col-md-6" >
+                  <div class="card info-card revenue-card" >
     
-                    <div class="card-body">
+                    <div class="card-body" >
                       <h5 class="card-title">Jumlah Registrasi</h5>
     
                       <div class="d-flex align-items-center">
@@ -239,7 +238,7 @@
                   <div class="card info-card revenue-card">
     
                     <div class="card-body">
-                      <h5 class="card-title">Silakan Inputkan Disini</h5>
+                      <h5 class="card-title">Inputkan Disini Untuk Pendaftaran</h5>
     
                       <div class="d-flex align-items-center">
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -247,14 +246,8 @@
                         </div>
                         <div class="ps-3">
                           <h6>
-                            <a href="{% url 'createsiswa' %}" >
-                              <button class="btn btn-primary btn-lg col-md-12 p-1">Siswa</button>
-                            </a>
-                            <a href="{% url 'createregistrasi' %}" >
-                                <button class="btn btn-secondary btn-lg col-md-12 p-1">Registrasi</button>
-                            </a>
-                            <a href="{% url 'createdetailregistrasi' %}" >
-                                <button class="btn btn-success btn-lg col-md-12 p-1">Detail Registrasi</button>
+                            <a href="{% url 'formsiswa' %}" >
+                              <button class="btn btn-primary btn-lg col-md-12 p-1">Silakan masukkan data formulir pendafataran</button>
                             </a>
                           </h6>
                         </div>
@@ -275,7 +268,7 @@
         </div>
           <div class="">
             <section id="home">
-                <img src="https://img.freepik.com/free-vector/organic-flat-computer-programming-illustration_23-2148955256.jpg?size=626&ext=jpg&ga=GA1.2.1015104699.1667490409" />
+              <img src="{% static 'assets/img/course.png' %}" alt="Profile" >
             </section>
           </div>
         </div>

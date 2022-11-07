@@ -177,7 +177,7 @@
                         <td>{{ item.Nomor_Telepon_Siswa }}</td>
                         <td>
                             <a href="{%url 'updatesiswa' item.Id_Siswa %}">
-                                <button class="btn btn-warning">Update</button>
+                                <button class="btn btn-warning" style="background-color: #e8dfca">Update</button>
                             </a>
                             <a href="{%url 'deletesiswa' item.Id_Siswa %}">
                                 <button class="btn btn-danger">Delete</button>
@@ -188,17 +188,10 @@
                 </table>
                 </table>
                 <a href="{% url 'createsiswa' %}">
-                    <button class="btn btn-success">  
+                    <button class="btn btn-success" style="background-color:#7895b2 ;">  
                         CREATE DATA
                     </button>
                 </a>
-                <tr>
-                    <td>
-                        <a href="{% url 'createregistrasi' %}">
-                            <button type="submit" class="btn btn-secondary">NEXT</button>
-                        </a> 
-                    </td>
-                </tr>
                 <!-- End Tables without borders -->
   
               </div>

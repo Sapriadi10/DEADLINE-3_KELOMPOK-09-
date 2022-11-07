@@ -142,11 +142,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-          <h1>Create Data Siswa</h1>
+          <h1>Create Data Registrasi</h1>
           <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{%url 'dashboard'%}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{%url 'siswa'%}">Siswa</a></li>
+              <li class="breadcrumb-item"><a href="{%url 'registrasi'%}">Registrasi</a></li>
               <li class="breadcrumb-item active">Create Data</li>
             </ol>
           </nav>
@@ -158,7 +158,7 @@
     
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Input Data Siswa</h5>
+                  <h5 class="card-title">Input Data Registrasi</h5>
     
                   <!-- General Form Elements -->
 
@@ -170,17 +170,17 @@
                             <div class="col-sm-10">
                                 <select name="Id_Siswa" id="" class="form-select" aria-label="Default select example">
                                     {% for item in datasiswa %}
-                                    <option value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                                    <option value="{{item.Id_Siswa}}">{{item.Nama_Siswa}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Id Siswa</label>
+                            <label for="inputText" class="col-sm-2 col-form-label">Id CS</label>
                             <div class="col-sm-10">
                                 <select name="ID_CS" id="" class="form-select" aria-label="Default select example">
                                     {% for item in datacustomerservice %}
-                                    <option value="{{item.ID_CS}}">{{item.ID_CS}}</option>
+                                    <option value="{{item.ID_CS}}">{{item.nama_cs}}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -192,10 +192,9 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Submit Button</label>
+                            <label class="col-sm-2 col-form-label">Next Button</label>
                             <div class="col-sm-10">
-                                <a href="{%url 'formsiswa'%}" class="previous">Previous</a>
-                                <a href="{%url 'formdetailregistrasi'%}" class="next">Next</a>
+                              <button type="submit" href="{%url 'formdetailregistrasi'%}" class="btn btn-primary">Next</button>
                             </div>
                         </div>
                     </form>

@@ -131,7 +131,7 @@
       </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}"">
+        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}">
           <i class="bi bi-bar-chart"></i>
           <span>Detail Registrasi</span>
         </a>
@@ -169,17 +169,17 @@
                         <div class="col-sm-10">
                             <select name="Id_Siswa" id="" class="form-select" aria-label="Default select example">
                                 {% for item in datasiswa %}
-                                <option value="{{item.Id_Siswa}}">{{item.Id_Siswa}}</option>
+                                <option value="{{item.Id_Siswa}}">{{item.Nama_Siswa}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Id Siswa</label>
+                        <label for="inputText" class="col-sm-2 col-form-label">Id CS</label>
                         <div class="col-sm-10">
                             <select name="ID_CS" id="" class="form-select" aria-label="Default select example">
                                 {% for item in datacustomerservice %}
-                                <option value="{{item.ID_CS}}">{{item.ID_CS}}</option>
+                                <option value="{{item.ID_CS}}">{{item.nama_cs}}</option>
                                 {% endfor %}
                             </select>
                         </div>

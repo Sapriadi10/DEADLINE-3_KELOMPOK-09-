@@ -44,6 +44,7 @@ h6 {
   margin-top: 60px;
   padding: 20px 30px;
   transition: all 0.3s;
+  background-color: #f5efe6;
 }
 
 @media (max-width: 1199px) {
@@ -395,9 +396,9 @@ h6 {
 .header {
   transition: all 0.5s;
   z-index: 997;
-  height: 60px;
+  height: 70px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #769fcd;
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -626,7 +627,7 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #d6e6f2;
 }
 
 @media (max-width: 1199px) {
@@ -817,6 +818,7 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
+  background-color: #b9d7ea;
 }
 
 .dashboard .info-card h6 {
@@ -843,7 +845,7 @@ h6 {
 
 .dashboard .revenue-card .card-icon {
   color: #2eca6a;
-  background: #e0f8e9;
+  background: #e4e0f8;
 }
 
 .dashboard .customers-card .card-icon {

@@ -34,7 +34,7 @@ def siswa(request):
 
 def createsiswa(request):
     if request.method == "GET":
-        return render(request, 'formsiswa.html')
+        return render(request, 'createsisway.html')
     else:
         Nama_Siswa = request.POST["Nama_Siswa"]
         Tanggal_Lahir = request.POST["Tanggal_Lahir"]
@@ -66,7 +66,7 @@ def formsiswa(request):
             Nomor_Telepon_Siswa = Nomor_Telepon_Siswa,   
         )
         newsiswa.save()
-        return redirect('siswa')
+        return redirect('formregistrasi')
 
 def updatesiswa(request,id):
     siswaobj = models.Siswa.objects.get(Id_Siswa=id)
@@ -188,7 +188,7 @@ def formregistrasi(request):
         )
         newregistrasi.save()
 
-        return redirect('registrasi')
+        return redirect('formdetailregistrasi')
 
 def updateregistrasi(request,id):
     registrasiobj = models.Registrasi.objects.get(Id_Registrasi= id)
@@ -332,7 +332,7 @@ def formdetailregistrasi(request):
         )
         newdetailregistrasi.save()
 
-        return redirect('DetailRegistrasi')
+        return redirect('dashboard')
 
 def updatedetailregistrasi(request,id):
     detailregistrasiobj = models.DetailRegistrasi.objects.get(Id_DetailRegistrasi=id)

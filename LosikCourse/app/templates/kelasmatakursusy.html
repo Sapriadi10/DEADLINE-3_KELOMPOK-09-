@@ -131,7 +131,7 @@
       </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}"">
+        <a class="nav-link collapsed" href="{%url 'DetailRegistrasi'%}">
           <i class="bi bi-bar-chart"></i>
           <span>Detail Registrasi</span>
         </a>
@@ -145,7 +145,7 @@
         <h1>Kelas Mata Kursus</h1>
         <nav>
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}"">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
             <li class="breadcrumb-item">Kelas Mata Kursus</li>
           </ol>
         </nav>
@@ -154,7 +154,7 @@
       <section class="section">
         <div class="row">
           <div class="col-lg-13>
-  <!-- <div class="card"></div>
+  <!-- <div class="card></div>
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Data Kelas Mata Kursus</h5>
@@ -184,8 +184,11 @@
                         <td>{{ item.Harga }}</td>
                         <td>{{ item.Status_Kelas }}</td>
                         <td>
-                            <a href="{%url 'updatekelasmatakursus' item.Id_Kelas_Mata_Kursus %}" ><button class="btn btn-warning">Update</button></a>
-                            <a href="{%url 'deletekelasmatakursus' item.Id_Kelas_Mata_Kursus %}" ><button class="btn btn-danger">Delete</button></a>
+                            <a href="{%url 'updatekelasmatakursus' item.Id_Kelas_Mata_Kursus %}" ><button style="background-color: #e8dfca" class="btn btn-warning">Update</button></a>
+                            <p>
+                              
+                            </p>
+                            <a href="{%url 'deletekelasmatakursus' item.Id_Kelas_Mata_Kursus %}" ><button  class="btn btn-danger">Delete</button></a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -193,7 +196,7 @@
                 </table>
               </table>
               <a href="{% url 'createkelasmatakursus' %}">
-                  <button class="btn btn-success">
+                  <button class="btn btn-success" style="background-color:#7895b2;">
                       CREATE DATA
                   </button>
               </a>
@@ -207,7 +210,7 @@
                               <option value="Graphic and Motion Designer">Graphic and Motion Designer</option>
                               <option value="Digital Marketing">Digital Marketing</option>
                           </select>
-                          <button type="submit" class="btn btn-light" style="background-color:rgb(219, 32, 126);">Filter</button>
+                          <button type="submit" class="btn btn-light" style="background-color:#b9d7ea;">Filter</button>
                       </td>
                   </table>
               </form>
