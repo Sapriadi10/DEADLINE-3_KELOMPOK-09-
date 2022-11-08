@@ -160,6 +160,23 @@
               <div class="card-body">
                 <h5 class="card-title">Data Kelas Mata Kursus</h5>
                 
+                <form action="" method = "POST">
+                  {% csrf_token %}
+                  <table>
+                      <td>
+                          <select name="filterkelas" id="">
+                              <option value="Full-stack Web Developer">Full-stack Web Developer</option>
+                              <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option>
+                              <option value="Graphic and Motion Designer">Graphic and Motion Designer</option>
+                              <option value="Digital Marketing">Digital Marketing</option>
+                          </select>
+                          <button type="submit" class="btn btn-light" style="background-color:#b9d7ea;">Filter</button>
+                      </td>
+                  </table>
+                </form>
+                <p>
+                  
+                </p>
                 <!-- Bordered Table -->
                 <table class="table table-bordered">
                   <thead>
@@ -187,20 +204,6 @@
                   </tbody>
                 </table>
               </table>
-              <form action="" method = "POST">
-                  {% csrf_token %}
-                  <table>
-                      <td>
-                          <select name="filterkelas" id="">
-                              <option value="Full-stack Web Developer">Full-stack Web Developer</option>
-                              <option value="UI/UX Design and Produc Management">UI/UX Design and Produc Management</option>
-                              <option value="Graphic and Motion Designer">Graphic and Motion Designer</option>
-                              <option value="Digital Marketing">Digital Marketing</option>
-                          </select>
-                          <button type="submit" class="btn btn-light" style="background-color:#b9d7ea;">Filter</button>
-                      </td>
-                  </table>
-              </form>
                 <!-- End Tables without borders -->
   
               </div>

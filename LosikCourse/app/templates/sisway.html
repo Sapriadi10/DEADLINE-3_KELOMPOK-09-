@@ -176,6 +176,11 @@
                         <td>{{ item.Alamat_Siswa }}</td>
                         <td>{{ item.Nomor_Telepon_Siswa }}</td>
                         <td>
+                            <a href="{%url 'filterdetailregis' item.Id_Siswa %}">
+                              <button class="btn btn-info">
+                                  DETAIL REGISTRASI
+                              </button>
+                            </a>
                             <a href="{%url 'updatesiswa' item.Id_Siswa %}">
                                 <button class="btn btn-warning" style="background-color: #e8dfca">Update</button>
                             </a>

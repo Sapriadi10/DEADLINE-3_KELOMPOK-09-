@@ -355,3 +355,14 @@ def deletedetailregistrasi(request,id):
     detailregistrasiobj.delete()
     return redirect('DetailRegistrasi') 
 
+# def laporan(request):
+#     if request.method == "GET":
+#         return render(request, 'laporan.html')
+#     elif request.method == "POST":
+#         detailobj = []
+#         mulai = request.POST['mulai']
+#         akhir = request.POST['akhir']
+    
+#     pemasukan = []
+#     for 
+        
