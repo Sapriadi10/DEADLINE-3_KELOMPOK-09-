@@ -355,6 +355,27 @@ def deletedetailregistrasi(request,id):
     detailregistrasiobj.delete()
     return redirect('DetailRegistrasi') 
 
+def tambahkelas(request):
+    if request.method == "GET":
+        allregistrasiobj = models.Registrasi.objects.all()
+        allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.all()
+        return render(request, 'tambahkelas.html',{
+            'dataregistrasi' : allregistrasiobj, 'datakelasmata' : allkelasmatakursusobj
+        })
+    if request.method == "POST":
+        Id_Registrasi = request.POST['Id_Registrasi']
+        allregistrasiobj = models.Registrasi.objects.get(Id_Registrasi=Id_Registrasi)
+        Id_Kelas_Mata_Kursus = request.POST['Id_Kelas_Mata_Kursus']
+        allkelasmatakursusobj = models.Kelas_Mata_Kursus.objects.get(Id_Kelas_Mata_Kursus=Id_Kelas_Mata_Kursus)
+
+        newdetailregistrasi = models.DetailRegistrasi(
+            Id_Registrasi = allregistrasiobj,
+            Id_Kelas_Mata_Kursus = allkelasmatakursusobj
+        )
+        newdetailregistrasi.save()
+
+        return redirect('formdetailregistrasi')
+    
 # def laporan(request):
 #     if request.method == "GET":
 #         return render(request, 'laporan.html')

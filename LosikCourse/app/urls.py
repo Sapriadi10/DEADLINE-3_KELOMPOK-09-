@@ -30,4 +30,5 @@ urlpatterns = [
     path('formsiswa', views.formsiswa, name="formsiswa"),
     path('formregistrasi', views.formregistrasi, name="formregistrasi"),
     path('formdetailregistrasi', views.formdetailregistrasi, name="formdetailregistrasi"),
+    path('tambahkelas', views.tambahkelas,name="tambahkelas"),
     ]
